@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffd1dc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Main white card */
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    min-height: 560px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 35px;
+    padding: 45px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(150, 50, 80, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+/* Every screen is hidden initially */
+
+.screen {
+    display: none;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Current screen */
+
+.screen.active {
+    display: block;
+}
+
+/* Cute emoji */
+
+.cute-heart {
+    font-size: 90px;
+    margin-bottom: 25px;
+    animation: floating 2s ease-in-out infinite;
+}
+
+.big-heart {
+    font-size: 110px;
+}
+
+/* Heading */
+
+h1 {
+    color: #e75480;
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+/* Paragraph */
+
+p {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    position: relative;
+}
+
+button {
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* YES button */
+
+.yes-btn {
+    background: #ff4f81;
+    color: white;
+    box-shadow: 0 7px 15px rgba(255, 79, 129, 0.3);
+}
+
+.yes-btn:hover {
+    transform: scale(1.08);
+}
+
+/* NO button */
+
+.no-btn {
+    background: #eeeeee;
+    color: #555;
+}
+
+.no-btn:hover {
+    transform: scale(0.95);
+}
+
+/* Continue button */
+
+.love-btn {
+    background: #ff4f81;
+    color: white;
+    padding: 15px 35px;
+    box-shadow: 0 7px 15px rgba(255, 79, 129, 0.3);
+}
+
+.love-btn:hover {
+    transform: scale(1.08);
+}
+
+/* Final message */
+
+.final-message {
+    color: #e75480;
+    font-weight: bold;
+}
+
+.forever {
+    margin-top: 25px;
+    color: #e75480;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Floating background hearts */
+
+.hearts::before,
+.hearts::after {
+    content: "💕 💗 💖 ❤️ 💕";
+    position: absolute;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    animation: heartsMove 8s linear infinite;
+    opacity: 0.6;
+}
+
+.hearts::after {
+    animation-delay: 4s;
+}
+
+/* Animations */
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartsMove {
+    0% {
+        top: 100%;
+    }
+
+    100% {
+        top: -10%;
+    }
+}
+
+/* Mobile screen */
+
+@media (max-width: 600px) {
+
+    .container {
+        min-height: 500px;
+        padding: 35px 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .cute-heart {
+        font-size: 75px;
+    }
+
+    .big-heart {
+        font-size: 90px;
+    }
+
+    button {
+        padding: 12px 22px;
+        font-size: 15px;
+    }
+}
